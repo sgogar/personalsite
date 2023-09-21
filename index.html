@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Santiago García</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body>
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">Santiago García</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Acerca de</a></li>
-                        <li class="nav-item"><a class="nav-link" href="https://github.com/sgogar">GitHub</a></li>
-                        <li class="nav-item"><a class="nav-link" href="mailto:atsantiagogarcia@gmail.com">Contacto</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Page Content-->
-        <section>
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-6">
-                        <h1 class="mt-5"><div class="skew">
-                            <p>Portfolio - Sitio en construcción</p>
-                          </div></h1>
-                        <p>Lorem ipsum  deleniti nostrum assumenda </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <title>santi</title>
+</head>
+<body>
+    <div class="absolute top-0 right-0 mt-4 mr-4">
+        <button id="enButton" class="px-3 py-2 bg-stone-300 hover:bg-stone-400 rounded">EN</button>
+        <button id="esButton" class="px-3 py-2 bg-stone-300 hover:bg-stone-400 rounded">ES</button>
+    </div>
+
+    <div class="container mx-auto pt-10 text-center">
+        <h1 class="text-4xl font-bold hover:underline block"><a href="mailto:atsantiagogarcia@gmail.com">Santiago Garcia</a></h1>
+    </div>
+    
+    <div id="content" class="container mx-auto py-10 text-center">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let currentLang = 'en';
+
+            function loadContent(language) {
+                switch (language) {
+                    case 'en':
+                        $('#content').load('en.html');
+                        break;
+                    case 'es':
+                        $('#content').load('es.html');
+                        break;
+                    default:
+                        console.error('Invalid language:', language);
+                }
+            }
+
+            loadContent(currentLang);
+
+            $('#enButton').click(function () {
+                currentLang = 'en';
+                loadContent(currentLang);
+            });
+
+            $('#esButton').click(function () {
+                currentLang = 'es';
+                loadContent(currentLang);
+            });
+        });
+        </script>
+    <script src="custom.js"></script>
+</body>
 </html>
